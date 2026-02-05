@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Chirp</title>
+  <meta name="description" content="Learn about Chirp's mission to revolutionize camp communication and keep every camper safe.">
+  <link rel="icon" type="image/png" href="AppIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="ChirpTitle.png" alt="Chirp">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-short">
+    <div class="hero-bg" style="background-image: url('WoodsBACK.png')"></div>
+    <div class="hero-content">
+      <h1>About Chirp</h1>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section class="mission-section section-padding">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="mission-text">
+        <p>Chirp started with a phone call from a good friend and executive director of a Texas camp, who needed help navigating the new Heaven 27 regulations. What began as a simple weather detection and alert system quickly grew as conversations with camp directors revealed bigger needs around communication, documentation, and coordination.</p>
+        <p>Today, Chirp is a full camp safety and critical communications platform — covering weather alerts, emergency broadcasts, staff messaging, and audit logs — all in one place, built to adapt to the way each camp actually operates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We're Building -->
+  <section class="features-section section-padding">
+    <div class="container">
+      <h2>What We're Building</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon">&#x1F326;&#xFE0F;</div>
+          <h3>Smart Weather Alerts</h3>
+          <p>Hyper-local weather monitoring tied to your camp's GPS coordinates. Receive tornado warnings, lightning alerts, and severe storm notifications before conditions become dangerous. Paid add-on services are available for more complete weather alerting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#x1F4E2;</div>
+          <h3>Unified Messaging</h3>
+          <p>One platform for all camp communication — staff-to-staff, camp-to-parent, and emergency broadcasts. No more juggling between radios, texts, and email.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#x2705;</div>
+          <h3>Acknowledgment Tracking</h3>
+          <p>Every critical message includes read-receipt confirmation. Know exactly who has seen your alert and follow up with those who haven't.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#x1F6A8;</div>
+          <h3>Emergency Broadcasting</h3>
+          <p>One-tap emergency alerts that reach every device on campus. Each camp can create their own custom communications protocols.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#x1F5FA;&#xFE0F;</div>
+          <h3>Interactive Camp Map</h3>
+          <p>Live map showing staff positions, facility locations, and emergency assembly points for each particular emergency. Know where everyone is when it matters most.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#x1F4CB;</div>
+          <h3>Compliance &amp; Audit Logs</h3>
+          <p>Automated digital records of every emergency communication — who sent it, who received it, and who acknowledged it. Built for regulatory compliance and peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="ChirpTitle.png" alt="Chirp">
+        <p>The critical communication platform for camps.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+        <a href="mailto:spencer@chirp.camp">spencer@chirp.camp</a>
+        <a href="mailto:austin@chirp.camp">austin@chirp.camp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Chirp. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

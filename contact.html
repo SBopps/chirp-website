@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Chirp</title>
+  <meta name="description" content="Get in touch with the Chirp team. We'd love to hear from you about how we can help your camp communicate better.">
+  <link rel="icon" type="image/png" href="AppIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="ChirpTitle.png" alt="Chirp">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-short">
+    <div class="hero-bg" style="background-image: url('RiverMiddleChirp.png')"></div>
+    <div class="hero-content">
+      <h1>Get In Touch</h1>
+      <p>We'd love to hear from you. Reach out to learn more about Chirp.</p>
+    </div>
+  </section>
+
+  <!-- We Want Your Input -->
+  <section class="mission-section section-padding">
+    <div class="container" style="max-width: 800px;">
+      <h2>We Want Your Input</h2>
+      <p class="mission-text" style="text-align: center; margin-bottom: 32px;">We've built Chirp based on feedback from people like you. If you have ideas or feedback that can improve the function or capability of Chirp, we would love to hear from you!.</p>
+      <div class="highlight-box">
+        <p style="font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">We'd love to know:</p>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li style="font-size: 1.05rem; color: #444; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--warm-orange); font-weight: 700;">&#8250;</span> Did we miss anything?</li>
+          <li style="font-size: 1.05rem; color: #444; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--warm-orange); font-weight: 700;">&#8250;</span> Is there a specific feature you would like to see in Chirp?</li>
+          <li style="font-size: 1.05rem; color: #444; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--warm-orange); font-weight: 700;">&#8250;</span> Would you like to be one of the 20 camps invited to the closed beta in March of 2026? </li>
+        </ul>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="mailto:hello@chirp.camp" class="btn btn-primary" style="font-weight: 800; background: #C4702E;">Share Your Thoughts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="contact-info-section section-padding">
+    <div class="container">
+      <h2>Reach Out Directly</h2>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="icon">👋</div>
+          <h3>General Inquiries</h3>
+          <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">💼</div>
+          <h3>Spencer</h3>
+          <a href="mailto:spencer@chirp.camp">spencer@chirp.camp</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">💼</div>
+          <h3>Austin</h3>
+          <a href="mailto:austin@chirp.camp">austin@chirp.camp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="ChirpTitle.png" alt="Chirp">
+        <p>The critical communication platform for camps.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+        <a href="mailto:spencer@chirp.camp">spencer@chirp.camp</a>
+        <a href="mailto:austin@chirp.camp">austin@chirp.camp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Chirp. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Nav Script -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

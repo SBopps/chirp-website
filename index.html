@@ -1,11 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chirp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chirp — The Critical Communication Platform for Camps</title>
+  <meta name="description" content="Chirp is the critical communication platform built for camps. Keep campers safe, staff connected, and parents informed.">
+  <link rel="icon" type="image/png" href="AppIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Chirp is coming soon.</h1>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="ChirpTitle.png" alt="Chirp">
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero hero-home">
+    <div class="hero-bg" style="background-image: url('OGBACK.png')"></div>
+    <img src="DigitalAssets/title.png" alt="Chirp" class="hero-logo">
+    <div class="hero-content">
+      <h1>The Critical Communication Platform for Camps</h1>
+      <p>Streamline communication and ensure safety at your camp.</p>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="problem-section section-padding">
+    <div class="container">
+      <h2>The Challenges Camp Directors Face Today</h2>
+      <p class="problem-intro">Keeping staff safe and connected across sprawling camp properties is harder than it should be. We've talked to camp directors who describe the same frustrations:</p>
+      <div class="problem-grid">
+        <div class="problem-card problem-card-compact">
+          <p>Staff is scattered across camp with no reliable way to reach everyone instantly</p>
+        </div>
+        <div class="problem-card problem-card-compact">
+          <p>Weather monitoring is manual and reliant on someone checking</p>
+        </div>
+        <div class="problem-card problem-card-compact">
+          <p>No way to confirm critical messages were received</p>
+        </div>
+        <div class="problem-card problem-card-compact">
+          <p>Communication is fragmented across multiple services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Capabilities Section -->
+  <section class="capabilities-section" id="capabilities">
+    <div class="capabilities-bg" style="background-image: url('WoodsBACK.png')"></div>
+    <div class="capabilities-content container">
+      <h2>Product Capabilities</h2>
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <div class="icon">&#x1F326;&#xFE0F;</div>
+          <h3>Location-Specific Weather Alerts</h3>
+          <p>Receive real-time severe weather alerts tailored to your camp's exact GPS coordinates.</p>
+        </div>
+        <div class="capability-card">
+          <div class="icon">&#x1F4E2;</div>
+          <h3>Campwide &amp; Parent Messaging</h3>
+          <p>Send announcements to all staff, specific groups, or directly to parents — all from one platform.</p>
+        </div>
+        <div class="capability-card">
+          <div class="icon">&#x2705;</div>
+          <h3>Message Acknowledgment</h3>
+          <p>Ensure critical messages are received and confirmed with read-receipt acknowledgment tracking.</p>
+        </div>
+        <div class="capability-card">
+          <div class="icon">&#x1F6A8;</div>
+          <h3>Easy-Access Emergency Broadcasts</h3>
+          <p>One-tap emergency alerts that instantly reach every device on campus with override priority.</p>
+        </div>
+        <div class="capability-card">
+          <div class="icon">&#x1F465;</div>
+          <h3>Staff Directory</h3>
+          <p>Searchable, always-updated directory with roles, contact info, and online availability status.</p>
+        </div>
+        <div class="capability-card">
+          <div class="icon">&#x1F5FA;&#xFE0F;</div>
+          <h3>Live Camp Map</h3>
+          <p>Interactive map showing the location of staff, facility markers, and emergency assembly points.</p>
+        </div>
+        <div class="capability-card centered">
+          <div class="icon">&#x1F4CB;</div>
+          <h3>Automated Emergency Audit Logs</h3>
+          <p>Comprehensive digital records of every alert sent, received, and acknowledged for compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- We're Building a Better Way -->
+  <section class="building-section section-padding">
+    <div class="container">
+      <h2>We're Building a Better Way</h2>
+      <div class="building-text">
+        <p>Chirp is a mobile app designed specifically to leverage smartphone hardware for camp staff communication and weather safety — bringing automated alerts, instant messaging, and accountability together in one platform thats built for how camps actually operate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Prop: Parents Hear It From You First -->
+  <section class="value-prop-section">
+    <div class="container">
+      <h2>Parents Hear It From You First</h2>
+      <p class="value-prop-intro">When something happens at camp, the clock starts immediately. Parents talk to each other. News travels. Social media moves fast. If parents learn about an incident from another source before hearing from you, trust erodes instantly — even if you handled everything perfectly.</p>
+      <div class="highlight-box">
+        <p style="font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Chirp ensures parents hear it from you first — not from another parent, not from social media, not from the news.</p>
+        <ul class="value-bullets">
+          <li>Parent notifications reach every family in seconds</li>
+          <li>Multi-channel delivery: push notification, SMS, and email all occur simultaneously</li>
+          <li>Delivery confirmation shows who received the message and when</li>
+          <li>Pre-built templates for common scenarios so you're not writing from scratch during a crisis</li>
+          <li>Message confirmation tracking that parents were informed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Prop: Every Camper, Accounted For -->
+  <section class="value-prop-section value-prop-alt">
+    <div class="container">
+      <h2>Every Camper, Accounted For</h2>
+      <p class="value-prop-intro">During emergencies, knowing where every staff member is critical. Paper-based head counts fail under pressure. In large camps where staff is spread across multiple activities, accounting for everyone is difficult at best.</p>
+      <div class="highlight-box">
+        <p style="font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">When you trigger a missing camper alert, Chirp doesn't just notify your team — it includes the camper's photo and relevant details so everyone knows exactly who they're looking for.</p>
+        <ul class="value-bullets">
+          <li>Complete camper profiles with photos, important medical information, and emergency contact info</li>
+          <li>Groups inside of Chirp are called Flocks and Flock assignments link campers to their counselors and cabins</li>
+          <li>Digital muster check-ins at designated safety zones</li>
+          <li>Real-time alert response acknowledgement during emergencies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve Section -->
+  <section class="serve-section section-padding">
+    <div class="container">
+      <h2>Who We Serve</h2>
+      <div class="serve-pills">
+        <span class="serve-pill">Summer Camps</span>
+        <span class="serve-pill">Day Camps</span>
+        <span class="serve-pill">Scout Camps</span>
+        <span class="serve-pill">Residential Programs</span>
+        <span class="serve-pill">Outdoor Education</span>
+        <span class="serve-pill">Retreat Centers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="ChirpTitle.png" alt="Chirp">
+        <p>The critical communication platform for camps.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+        <a href="mailto:spencer@chirp.camp">spencer@chirp.camp</a>
+        <a href="mailto:austin@chirp.camp">austin@chirp.camp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Chirp. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+
 </body>
 </html>
