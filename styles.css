@@ -263,7 +263,7 @@ p {
 .hero-home {
   min-height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 100px 24px 80px;
 }
