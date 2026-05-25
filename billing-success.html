@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're all set — Chirp</title>
+  <meta name="description" content="Your Chirp subscription is active. Reopen the app to continue.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="DigitalAssets/ChirpAppCon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .billing-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+    }
+    .billing-card {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(28, 55, 33, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+    .billing-check {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: rgba(76, 175, 80, 0.18);
+      border: 2px solid #4CAF50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .billing-card h1 {
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #FFFBF5;
+      margin-bottom: 10px;
+    }
+    .billing-card p {
+      color: rgba(255, 251, 245, 0.78);
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .billing-open-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #D85A3A, #E8873D);
+      color: #ffffff;
+      padding: 14px 38px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s ease;
+      cursor: pointer;
+      border: 0;
+    }
+    .billing-open-btn:hover {
+      transform: translateY(-1px);
+    }
+    .billing-help {
+      margin-top: 22px;
+      font-size: 0.88rem;
+      color: rgba(255, 251, 245, 0.55);
+    }
+    .billing-help a {
+      color: #E8873D;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="billing-wrap">
+    <div class="billing-card">
+      <div class="billing-check" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12.5l4 4 10-10" stroke="#4CAF50" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>You&rsquo;re all set!</h1>
+      <p>Your subscription is active. Reopening Chirp&hellip;</p>
+      <button class="billing-open-btn" id="openBtn" type="button">Open Chirp</button>
+      <p class="billing-help">
+        Didn&rsquo;t reopen automatically? Just relaunch the Chirp app on your phone.
+        <br>Questions? <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    // Fire the deep link immediately so users coming back from Stripe land
+    // in the app without an extra tap. If the OS has no app registered for
+    // the scheme (desktop browser, app uninstalled) nothing happens — the
+    // manual "Open Chirp" button stays available.
+    var DEEP_LINK = 'chirpcamp://billing-success';
+
+    function openApp() {
+      window.location.href = DEEP_LINK;
+    }
+
+    document.getElementById('openBtn').addEventListener('click', openApp);
+
+    // Auto-attempt once on load. iOS Safari sometimes blocks the redirect
+    // when it happens too early, so we defer by a tick.
+    setTimeout(openApp, 100);
+  </script>
+</body>
+</html>

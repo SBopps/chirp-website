@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe to Chirp — Help</title>
+  <meta name="description" content="How to subscribe to Chirp from the mobile app, or recover access if you can't get to your phone.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="DigitalAssets/ChirpAppCon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .help-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+    }
+    .help-card {
+      max-width: 560px;
+      width: 100%;
+      background: rgba(28, 55, 33, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+    .help-card h1 {
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #FFFBF5;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .help-card p {
+      color: rgba(255, 251, 245, 0.8);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .help-steps {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 28px;
+      counter-reset: step;
+    }
+    .help-steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 14px 14px 14px 56px;
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      color: rgba(255, 251, 245, 0.85);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+    .help-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #D85A3A, #E8873D);
+      color: #ffffff;
+      font-weight: 700;
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .open-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #D85A3A, #E8873D);
+      color: #ffffff;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      border: 0;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+    .open-btn:hover {
+      transform: translateY(-1px);
+    }
+    .help-footer {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 251, 245, 0.6);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+    .help-footer a {
+      color: #E8873D;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="help-wrap">
+    <div class="help-card">
+      <h1>Subscribe to Chirp</h1>
+      <p>Subscriptions are managed from inside the Chirp mobile app. Here&rsquo;s how to get there:</p>
+
+      <ol class="help-steps">
+        <li>Open Chirp on the phone where you signed up.</li>
+        <li>Sign in as the camp administrator.</li>
+        <li>On the lock screen (or Settings), tap <strong>Subscribe Now</strong>.</li>
+        <li>Enter your card on the secure Stripe checkout page.</li>
+      </ol>
+
+      <button class="open-btn" id="openBtn" type="button">Open Chirp on this device</button>
+
+      <div class="help-footer">
+        If you don&rsquo;t have the Chirp app installed yet, search for &ldquo;Chirp&rdquo; in the App Store or Google Play.
+        <br><br>
+        Stuck or can&rsquo;t get to your phone?
+        Email <a href="mailto:hello@chirp.camp">hello@chirp.camp</a> and we&rsquo;ll help you get reactivated.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Best-effort deep link: opens the Chirp app if installed; otherwise the
+    // browser silently ignores the unknown scheme and the user still has the
+    // step-by-step instructions and a support email.
+    document.getElementById('openBtn').addEventListener('click', function() {
+      window.location.href = 'chirpcamp://';
+    });
+  </script>
+</body>
+</html>
