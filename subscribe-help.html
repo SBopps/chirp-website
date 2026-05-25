@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscribe to Chirp — Help</title>
+  <title>Subscribe to Chirp &mdash; Help</title>
   <meta name="description" content="How to subscribe to Chirp from the mobile app, or recover access if you can't get to your phone.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="DigitalAssets/ChirpAppCon.png">
@@ -12,35 +12,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .help-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
+    .help-content {
+      max-width: 620px;
+      margin: 0 auto;
     }
     .help-card {
-      max-width: 560px;
-      width: 100%;
-      background: rgba(28, 55, 33, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px) saturate(1.3);
+      -webkit-backdrop-filter: blur(16px) saturate(1.3);
+      border: 1px solid var(--border-amber);
       border-radius: 18px;
       padding: 40px 36px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     }
-    .help-card h1 {
-      font-family: 'Quicksand', 'Nunito', sans-serif;
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #FFFBF5;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-    .help-card p {
-      color: rgba(255, 251, 245, 0.8);
+    .help-card > p {
+      color: var(--text-secondary);
       font-size: 1rem;
       line-height: 1.6;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
     .help-steps {
       list-style: none;
@@ -51,12 +40,12 @@
     .help-steps li {
       counter-increment: step;
       position: relative;
-      padding: 14px 14px 14px 56px;
+      padding: 14px 16px 14px 58px;
       margin-bottom: 10px;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-amber);
       border-radius: 12px;
-      color: rgba(255, 251, 245, 0.85);
+      color: var(--text-primary);
       font-size: 0.96rem;
       line-height: 1.5;
     }
@@ -69,7 +58,7 @@
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #D85A3A, #E8873D);
+      background: var(--campfire-orange);
       color: #ffffff;
       font-weight: 700;
       font-family: 'Quicksand', 'Nunito', sans-serif;
@@ -77,11 +66,12 @@
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
+      box-shadow: 0 4px 12px var(--glow-orange);
     }
     .open-btn {
       display: block;
       width: 100%;
-      background: linear-gradient(135deg, #D85A3A, #E8873D);
+      background: var(--campfire-orange);
       color: #ffffff;
       padding: 14px 24px;
       border-radius: 999px;
@@ -92,55 +82,147 @@
       border: 0;
       cursor: pointer;
       letter-spacing: 0.02em;
+      box-shadow: 0 6px 18px var(--glow-orange);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     .open-btn:hover {
       transform: translateY(-1px);
+      box-shadow: 0 10px 26px var(--glow-orange);
     }
     .help-footer {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 251, 245, 0.6);
-      font-size: 0.88rem;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-amber);
+      color: var(--text-muted);
+      font-size: 0.9rem;
       text-align: center;
+      line-height: 1.6;
     }
     .help-footer a {
-      color: #E8873D;
+      color: var(--campfire-orange);
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <main class="help-wrap">
-    <div class="help-card">
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="ChirpTitle.png" alt="Chirp">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+        <a href="/get-started" class="nav-cta">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+      <a href="/get-started" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-short">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
       <h1>Subscribe to Chirp</h1>
-      <p>Subscriptions are managed from inside the Chirp mobile app. Here&rsquo;s how to get there:</p>
+    </div>
+  </section>
 
-      <ol class="help-steps">
-        <li>Open Chirp on the phone where you signed up.</li>
-        <li>Sign in as the camp administrator.</li>
-        <li>On the lock screen (or Settings), tap <strong>Subscribe Now</strong>.</li>
-        <li>Enter your card on the secure Stripe checkout page.</li>
-      </ol>
+  <!-- Content -->
+  <section class="section-padding">
+    <div class="container in-view help-content">
+      <div class="help-card">
+        <p>Subscriptions are managed from inside the Chirp mobile app. Here&rsquo;s how to get there:</p>
 
-      <button class="open-btn" id="openBtn" type="button">Open Chirp on this device</button>
+        <ol class="help-steps">
+          <li>Open Chirp on the phone where you signed up.</li>
+          <li>Sign in as the camp administrator.</li>
+          <li>On the lock screen (or Settings), tap <strong>Subscribe Now</strong>.</li>
+          <li>Enter your card on the secure Stripe checkout page.</li>
+        </ol>
 
-      <div class="help-footer">
-        If you don&rsquo;t have the Chirp app installed yet, search for &ldquo;Chirp&rdquo; in the App Store or Google Play.
-        <br><br>
-        Stuck or can&rsquo;t get to your phone?
-        Email <a href="mailto:hello@chirp.camp">hello@chirp.camp</a> and we&rsquo;ll help you get reactivated.
+        <button class="open-btn" id="openBtn" type="button">Open Chirp on this device</button>
+
+        <div class="help-footer">
+          Don&rsquo;t have Chirp installed yet? Search for &ldquo;Chirp&rdquo; in the App Store or Google Play.
+          <br><br>
+          Stuck, or can&rsquo;t get to your phone?
+          Email <a href="mailto:hello@chirp.camp">hello@chirp.camp</a> and we&rsquo;ll help you get reactivated.
+        </div>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="ChirpTitle.png" alt="Chirp">
+        <p>Camp communication, weather safety, and emergency coordination &mdash; built for camp staff.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Chirp</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/get-started">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Legal &amp; Contact</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/sms-consent">SMS Consent</a>
+        <a href="/delete-account">Delete Account</a>
+        <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Chirp. All rights reserved.
+    </div>
+  </footer>
 
   <script>
-    // Best-effort deep link: opens the Chirp app if installed; otherwise the
-    // browser silently ignores the unknown scheme and the user still has the
-    // step-by-step instructions and a support email.
+    const navbar = document.getElementById('navbar');
+    function onScroll() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const panDistance = (window.innerHeight * 3.5) - window.innerHeight;
+      const speed = maxScroll > 0 ? panDistance / maxScroll : 0;
+      document.body.style.setProperty('--parallax-y', (-window.scrollY * speed) + 'px');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section:not(.hero) > .container').forEach(el => observer.observe(el));
+
+    // Best-effort deep link
     document.getElementById('openBtn').addEventListener('click', function() {
       window.location.href = 'chirpcamp://';
     });
   </script>
+
 </body>
 </html>

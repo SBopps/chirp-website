@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout canceled — Chirp</title>
-  <meta name="description" content="You canceled the Chirp subscription checkout. You can try again any time.">
+  <title>Checkout canceled &mdash; Chirp</title>
+  <meta name="description" content="You canceled the Chirp subscription checkout. You can try again any time from inside the Chirp app.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="DigitalAssets/ChirpAppCon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,48 +12,142 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .billing-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
+    .billing-content {
+      max-width: 560px;
+      margin: 0 auto;
     }
     .billing-card {
-      max-width: 480px;
-      width: 100%;
-      background: rgba(28, 55, 33, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px) saturate(1.3);
+      -webkit-backdrop-filter: blur(16px) saturate(1.3);
+      border: 1px solid var(--border-amber);
       border-radius: 18px;
-      padding: 40px 32px;
+      padding: 40px 36px;
       text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     }
-    .billing-card h1 {
+    .billing-card h2 {
       font-family: 'Quicksand', 'Nunito', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #FFFBF5;
-      margin-bottom: 10px;
+      color: var(--text-primary);
+      margin-bottom: 14px;
     }
     .billing-card p {
-      color: rgba(255, 251, 245, 0.78);
+      color: var(--text-secondary);
       font-size: 1rem;
-      line-height: 1.55;
-      margin-bottom: 18px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .billing-card p:last-child {
+      margin-bottom: 0;
     }
     .billing-card a {
-      color: #E8873D;
+      color: var(--campfire-orange);
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <main class="billing-wrap">
-    <div class="billing-card">
-      <h1>Checkout canceled</h1>
-      <p>No charges were made. You can finish subscribing any time from inside the Chirp app.</p>
-      <p>Need help? <a href="mailto:hello@chirp.camp">hello@chirp.camp</a></p>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="ChirpTitle.png" alt="Chirp">
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+        <a href="/get-started" class="nav-cta">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </main>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+      <a href="/get-started" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-short">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Checkout canceled</h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section-padding">
+    <div class="container in-view billing-content">
+      <div class="billing-card">
+        <h2>No charges were made</h2>
+        <p>You can finish subscribing any time from inside the Chirp app &mdash; just open Chirp and tap <strong>Subscribe Now</strong>.</p>
+        <p>Need help? <a href="mailto:hello@chirp.camp">hello@chirp.camp</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="ChirpTitle.png" alt="Chirp">
+        <p>Camp communication, weather safety, and emergency coordination &mdash; built for camp staff.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Chirp</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/get-started">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Legal &amp; Contact</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/sms-consent">SMS Consent</a>
+        <a href="/delete-account">Delete Account</a>
+        <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Chirp. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    function onScroll() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const panDistance = (window.innerHeight * 3.5) - window.innerHeight;
+      const speed = maxScroll > 0 ? panDistance / maxScroll : 0;
+      document.body.style.setProperty('--parallax-y', (-window.scrollY * speed) + 'px');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section:not(.hero) > .container').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
