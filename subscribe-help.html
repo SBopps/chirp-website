@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscribe to Chirp &mdash; Help</title>
-  <meta name="description" content="How to subscribe to Chirp from the mobile app, or recover access if you can't get to your phone.">
+  <title>Manage your Chirp subscription</title>
+  <meta name="description" content="Open your Chirp camp's billing portal using the secure link in your billing email.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="DigitalAssets/ChirpAppCon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,7 +136,7 @@
   <section class="hero hero-short">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Subscribe to Chirp</h1>
+      <h1 id="pageTitle">Manage your Chirp subscription</h1>
     </div>
   </section>
 
@@ -144,22 +144,26 @@
   <section class="section-padding">
     <div class="container in-view help-content">
       <div class="help-card">
-        <p>Subscriptions are managed from inside the Chirp mobile app. Here&rsquo;s how to get there:</p>
+        <!-- Default (no-token / missing) view -->
+        <div id="missingTokenView">
+          <p>To manage your Chirp subscription, open the most recent billing email from us and click the button inside &mdash; it includes a secure link to your camp&rsquo;s billing portal.</p>
+          <p style="margin-top: 18px;">Can&rsquo;t find the email? Email <a href="mailto:hello@chirp.camp" style="color: var(--campfire-orange); text-decoration: underline;">hello@chirp.camp</a> from the address associated with your camp and we&rsquo;ll send a fresh link.</p>
+        </div>
 
-        <ol class="help-steps">
-          <li>Open Chirp on the phone where you signed up.</li>
-          <li>Sign in as the camp administrator.</li>
-          <li>On the lock screen (or Settings), tap <strong>Subscribe Now</strong>.</li>
-          <li>Enter your card on the secure Stripe checkout page.</li>
-        </ol>
+        <!-- Loading view: shown while we redirect -->
+        <div id="loadingView" style="display: none; text-align: center; padding: 16px 0;">
+          <p>Opening your billing portal&hellip;</p>
+          <p style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted);">You&rsquo;ll be redirected to Stripe to manage your subscription.</p>
+        </div>
 
-        <button class="open-btn" id="openBtn" type="button">Open Chirp on this device</button>
+        <!-- Error view: shown if redirect fails -->
+        <div id="errorView" style="display: none;">
+          <p id="errorMessage" style="color: var(--text-primary);"></p>
+          <p style="margin-top: 18px;">Email <a href="mailto:hello@chirp.camp" style="color: var(--campfire-orange); text-decoration: underline;">hello@chirp.camp</a> from the address associated with your camp and we&rsquo;ll send a new link.</p>
+        </div>
 
         <div class="help-footer">
-          Don&rsquo;t have Chirp installed yet? Search for &ldquo;Chirp&rdquo; in the App Store or Google Play.
-          <br><br>
-          Stuck, or can&rsquo;t get to your phone?
-          Email <a href="mailto:hello@chirp.camp">hello@chirp.camp</a> and we&rsquo;ll help you get reactivated.
+          Questions? Reach out to <a href="mailto:hello@chirp.camp">hello@chirp.camp</a>.
         </div>
       </div>
     </div>
@@ -218,10 +222,48 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('section:not(.hero) > .container').forEach(el => observer.observe(el));
 
-    // Best-effort deep link
-    document.getElementById('openBtn').addEventListener('click', function() {
-      window.location.href = 'chirpcamp://';
-    });
+    // Billing redirect flow.
+    // Email CTAs land here with ?token=<signed_jwt>. We immediately bounce
+    // the browser to the backend's /api/v1/billing/redirect endpoint, which
+    // verifies the token and 302s to either Stripe Checkout (camps without
+    // a customer yet) or the Stripe Customer Portal (camps with payment
+    // method on file). The iOS app intentionally has no purchase CTAs, so
+    // this email-link path is the only way admins manage billing.
+    const API_BASE_URL = 'https://chirp-07tu.onrender.com';
+
+    function showError(message) {
+      document.getElementById('pageTitle').textContent = 'Link expired';
+      document.getElementById('missingTokenView').style.display = 'none';
+      document.getElementById('loadingView').style.display = 'none';
+      const errorView = document.getElementById('errorView');
+      document.getElementById('errorMessage').textContent = message;
+      errorView.style.display = 'block';
+    }
+
+    (function handleBillingRedirect() {
+      const params = new URLSearchParams(window.location.search);
+      const error = params.get('error');
+      const token = params.get('token');
+
+      if (error) {
+        const messages = {
+          expired: 'This billing link has expired or is no longer valid.',
+          notfound: 'We could not find the camp associated with this link.',
+          noadmin: 'No active admin is registered for this camp.',
+          stripe:  'We could not open your billing portal right now. Please try again in a moment.',
+        };
+        showError(messages[error] || 'Something went wrong opening your billing portal.');
+        return;
+      }
+
+      if (token) {
+        document.getElementById('missingTokenView').style.display = 'none';
+        document.getElementById('loadingView').style.display = 'block';
+        document.getElementById('pageTitle').textContent = 'Opening billing portal…';
+        // Top-level navigation — backend 302s to Stripe.
+        window.location.replace(`${API_BASE_URL}/api/v1/billing/redirect?token=${encodeURIComponent(token)}`);
+      }
+    })();
   </script>
 
 </body>
