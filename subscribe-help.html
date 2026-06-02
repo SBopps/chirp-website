@@ -261,7 +261,7 @@
         document.getElementById('loadingView').style.display = 'block';
         document.getElementById('pageTitle').textContent = 'Opening billing portal…';
         // Top-level navigation — backend 302s to Stripe.
-        window.location.replace(`${API_BASE_URL}/api/v1/billing/redirect?token=${encodeURIComponent(token)}`);
+        window.location.replace(`${API_BASE_URL}/billing/redirect?token=${encodeURIComponent(token)}`);
       }
     })();
   </script>
